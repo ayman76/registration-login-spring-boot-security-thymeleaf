@@ -18,23 +18,23 @@ public class UserService {
 	@Autowired
 	private UserRepo userRepo;
 
-	private User findById(Long id) {
+	public User findById(Long id) {
 		return userRepo.findById(id).orElseThrow();
 	}
 
-	private User getById(Long id) {
+	public User getById(Long id) {
 		return userRepo.getReferenceById(id);
 	}
 
-	private List<User> findAll() {
+	public List<User> findAll() {
 		return userRepo.findAll();
 	}
 
-	private Long count() {
+	public Long count() {
 		return userRepo.count();
 	}
 
-	private User insert(UserRegistrationDto userDto) {
+	public User insert(UserRegistrationDto userDto) {
 		Set<Role> defaultRole = new HashSet<>();
 		defaultRole.add(new Role("ROLE_USER"));
 		User user = new User(userDto.getFirstName(), userDto.getLastName(), userDto.getEmail(), userDto.getPassword(),
@@ -43,7 +43,7 @@ public class UserService {
 		return userRepo.save(user);
 	}
 
-	private User update(User user) {
+	public User update(User user) {
 		User updated = getById(user.getId());
 
 		updated.setFirstName(user.getFirstName());
@@ -52,10 +52,10 @@ public class UserService {
 		updated.setPassword(user.getPassword());
 		updated.setRoles(user.getRoles());
 
-		return userRepo.save(updated);
+		return userRepo.save(updated); 
 	}
 
-	private void deleteById(Long id) {
+	public void deleteById(Long id) {
 		userRepo.deleteById(id);
 	}
 
