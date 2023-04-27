@@ -15,6 +15,15 @@ public class UserRegistrationDto {
 		this.password = password;
 	}
 	
+	
+	
+	public UserRegistrationDto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public String getFirstName() {
 		return firstName;
 	}

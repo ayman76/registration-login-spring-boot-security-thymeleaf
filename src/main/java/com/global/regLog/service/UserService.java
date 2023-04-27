@@ -1,5 +1,6 @@
 package com.global.regLog.service;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -35,10 +36,8 @@ public class UserService {
 	}
 
 	public User insert(UserRegistrationDto userDto) {
-		Set<Role> defaultRole = new HashSet<>();
-		defaultRole.add(new Role("ROLE_USER"));
 		User user = new User(userDto.getFirstName(), userDto.getLastName(), userDto.getEmail(), userDto.getPassword(),
-				defaultRole);
+				Arrays.asList(new Role("ROLE_USER")));
 
 		return userRepo.save(user);
 	}
