@@ -35,9 +35,8 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(Long id, String firstName, String lastName, String email, String password, Set<Role> roles) {
+	public User(String firstName, String lastName, String email, String password, Set<Role> roles) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
